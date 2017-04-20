@@ -1,1 +1,1 @@
-# json-schema-plugin
+# repoir-plugin-json-schema-plugin
