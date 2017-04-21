@@ -4,7 +4,14 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "test": "jest --coverage"
+    "build": "babel src --out-dir dist --ignore spec.js,test.js",
+    "build:watch": "npm run build -- --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "healthcheck": "npm run clean && npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,6 +24,16 @@
   },
   "homepage": "https://github.com/repoir/repoir-plugin-json-schema#readme",
   "devDependencies": {
-    "eslint-config-repoir": "*"
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "coveralls": "^2.13.0",
+    "eslint": "^3.19.0",
+    "eslint-config-repoir": "*",
+    "jest": "^19.0.2"
+  },
+  "dependencies": {
+    "ajv": "^5.0.0",
+    "lodash": "^4.17.4"
   }
 }
